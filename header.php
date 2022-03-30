@@ -15,7 +15,13 @@ echo <<<_END
     <meta name="description" content="TaskIt! a community website that users can post anything on a virtual community notice board">
 </head>
 
+_END; 
+echo <<<_END
+<body>
+<h1> hello world </h1>
+</body>
 _END;
+
 //make an html head viewport, inlude viewport, stylesheets and a description
 //header, inlude logo, title, nav
 //in the nave, pages should include for now:
