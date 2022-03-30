@@ -1,4 +1,7 @@
 <?php
+echo "<!DOCTYPE html>";
+echo
+
 //make an html head viewport, inlude viewport, stylesheets and a description
 //header, inlude logo, title, nav
 //in the nave, pages should include for now:
