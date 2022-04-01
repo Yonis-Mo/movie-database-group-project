@@ -1,0 +1,4 @@
+1) create "moviesdatabase" in mysql
+2)Import Movies
+2)Import Users
+3)Import the rest
