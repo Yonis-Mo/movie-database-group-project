@@ -10,3 +10,17 @@ SELECT * FROM movies
 JOIN credits 
 ON movies.TMDB_ID = credits.ID
 WHERE CREW LIKE "%Howard Deutch%";
+
+Search by Movie: 
+SELECT * FROM movies 
+WHERE title Like "%Mad max%"
+
+Search by Genre: 
+SELECT * FROM movies 
+WHERE Genres Like "%action%"
+
+Search by Director: 
+SELECT * FROM movies 
+JOIN credits 
+ON movies.TMDB_ID = credits.ID
+WHERE CREW LIKE "%Howard Deutch%";
