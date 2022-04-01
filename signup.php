@@ -21,7 +21,7 @@
 
 
 //IF username entered already in use the ERROR message: "username already in use, Please use a different username"
-//ELSE IF username entered already in use
+
 
 //IF any field is left blank then the script should display an error message saying to enter + empty field
 //IF any field the information entered is not valid then error message: "field + 'not valid' "
