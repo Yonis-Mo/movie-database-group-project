@@ -13,10 +13,11 @@ if ($conn->connect_error) {
 }
 
 $sql = "SELECT * FROM movies WHERE Genres LIKE ?;";
-$stmt = $conn->prepare($sql); 
-$search_genre = "%Animation%";
+$stmt = $conn->prepare($sql);
+$search_genre = $_GET['genre'];
+$search_genre = "%".$search_genre."%";
+//$search_genre = "%Animation%";
 $stmt->bind_param("s", $search_genre);
-$id = 1;
 
 $stmt->execute();
 $result = $stmt->get_result();
@@ -34,8 +35,9 @@ $table = <<<TABLE
 
 TABLE;
 
-echo $table;
 
+if($result->num_rows > 0){
+  echo $table;
 while ($row = $result->fetch_assoc()) {
   
     echo "<tr>";
@@ -43,17 +45,22 @@ while ($row = $result->fetch_assoc()) {
     echo "<td>".$row['Overview']."</td>";
     echo "<td>".$row['Budget']."</td>";
     echo "<td>".$row['Revenue']."</td>";
-    echo "<td>".$row['ReleaseDate']."</td>";
+
+    $UNIX_DATE = ($row['ReleaseDate'] - 25569) * 86400;
+    $readable_date = gmdate("d-m-Y H:i:s", $UNIX_DATE);
+    $readable_date = substr($readable_date, 0, 10);
+    echo "<td>".$readable_date."</td>";
     echo "<td>".$row['Runtime']."</td>";
     echo "<td>".$row['VoteAvg']."</td>";
     echo "<td>".$row['Popularity']."</td>";
     echo "</tr>";
 
 }
+}else{
+  echo "Sorry! We couldn't find any films of that genre";
+}
 
 echo "</table>";
-
-echo $table;
 
 ?>
 
