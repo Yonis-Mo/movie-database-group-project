@@ -24,3 +24,11 @@ SELECT * FROM movies
 JOIN credits 
 ON movies.TMDB_ID = credits.ID
 WHERE CREW LIKE "%Howard Deutch%";
+
+
+Ascending and Descending order: 
+SELECT * FROM movies 
+ORDER BY Title DESC
+
+SELECT * FROM movies 
+ORDER BY Title ASC
