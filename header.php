@@ -1,5 +1,12 @@
 <?php
-echo "<!DOCTYPE html>";
+// until we make one:
+// require_once "credentials.php";
+
+// start/restart the session
+session_start();
+
+
+
 echo <<<_END
 
 <!DOCTYPE html>
@@ -7,19 +14,61 @@ echo <<<_END
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sketchy/bootstrap.min.css" integrity="sha384-RxqHG2ilm4r6aFRpGmBbGTjsqwfqHOKy1ArsMhHusnRO47jcGqpIQqlQK/kmGy9R" crossorigin="anonymous">
-    <link id="stylesheet" rel="stylesheet" href="css/taskit.css"> <!--make this dependant on session value -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/normal.css">
     <title>Taskit</title>
     <meta name="viewport" content="width=device-width, intial-scale=1">
-    <meta name="description" content="TaskIt! a community website that users can post anything on a virtual community notice board">
+    <meta name="description" content="Do this later guys...">
 </head>
 
-_END; 
-echo <<<_END
 <body>
-<h1> hello world </h1>
-</body>
+  
+    <header>
+       
+        <img> <!-- design a logo and interst here -->
+        <h1></h1> <!-- get a title and interst here-->
+_END;
+if (isset($_SESSION['loggedIn'])){
+    if (isset($_SESSION['admin'])){
+        // THIS PERSON IS LOGGED IN
+       // show the logged in menu options:
+    echo <<<_END
+    <nav aria-label="main menu" id="nav">
+       <ul>
+           <li><a href="index.php"> Home </a> </li>
+           <li><a href="admin.php">Admin</a> </li>
+           <li><a href="user.php">My Watchlist</a> </li>
+           <li><a href="logout.php"> Log Out</a> </li>
+       </ul>
+    </nav>
+    _END;
+    }else{
+            // THIS PERSON IS LOGGED IN
+           // show the logged in menu options:
+echo <<<_END
+        <nav aria-label="main menu" id="nav">
+           <ul>
+               <li><a href="index.php"> Home </a> </li>
+               <li><a href="user.php">My Watchlist</a> </li>
+               <li><a href="logout.php"> Log Out</a> </li>
+           </ul>
+       </nav>
+_END;
+    }
+}
+else{
+echo <<<_END
+              <nav aria-label="main menu" id="nav">
+            <ul>
+                <li><a href="index.php"> Home </a> </li>
+                <li><a href="login.php"> Log In</a> </li>
+                <li><a href="sign_up.php"> Sign Up</a> </li>
+            </ul>
+        </nav>
+_END;
+}
+echo <<<_END
+    </header>
+    <main>
 _END;
 
 //make an html head viewport, inlude viewport, stylesheets and a description
