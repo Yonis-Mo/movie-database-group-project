@@ -1,16 +1,6 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "moviesdatabase";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+require_once('credentials.php');
 
 $sql = "SELECT * FROM movies WHERE Genres LIKE ?;";
 $stmt = $conn->prepare($sql);

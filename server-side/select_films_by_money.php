@@ -1,16 +1,6 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "moviesdatabase";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+require_once('credentials.php');
 
 $search_by = $_GET['search_by'];    //"budget" or "revenue"
 $max = isset($_GET['max']) ? $_GET['max'] : 20000000; //Default = 20,000,000
