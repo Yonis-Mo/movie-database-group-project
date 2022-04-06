@@ -1,6 +1,6 @@
 <?php
-require_once('credentials.php');
 
+require_once('credentials.php');
 
 $sql = "INSERT INTO users (Username, Password, Firstname, Lastname)
 VALUES (?,?,?,?);";
