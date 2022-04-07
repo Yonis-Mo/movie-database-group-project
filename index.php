@@ -5,25 +5,31 @@ echo '<h1> The A-Team Movie Website </h1>';
 
 echo <<<_END
 <br>
-<div class= "sort">
+<div class= "Genre">
 <form action="index.php"  method="post">
-  <label for="choice">Choose a Genre: </label> <br>
-  <select id="choice" name="choice" >
-    <option> Select your option</option>
+  <label for="genre">Choose a Genre: </label> <br>
+  <select id="genre" name="genre" >
+    <option> Select your genre</option>
     <option value="action" name="Action">Action</option>
     <option value="romance" name="Romance">Romance</option>
     <option value="thriller" name="Thriller">Thriller</option>
     <option value="horror" name="Horror">Horror</option>
+    <option value="crime" name="crime">Crime</option>
+    <option value="western" name="western">Western</option>
+    <option value="comedy" name="comedy">Comedy</option>
+    <option value="drama" name="drama">Drama</option>
+    <option value="foreign" name="foerign">Foreign</option>
+    <option value="adventure" name="adventure">Adventure</option>
   </select>
   <button type="submit" value="Submit"> Sort</buttn>
 </form>
 </div>
 
-<div class= "sort">
+<div class= "Year">
 <form action="index.php"  method="post">
-  <label for="choice">Choose a Year: </label> <br>
-  <select id="choice" name="choice" >
-    <option> Select your option</option>
+  <label for="year">Choose a Year: </label> <br>
+  <select id="year" name="year" >
+    <option> Select a year</option>
     <option value="1970s" name="1970s">1970-1980</option>
     <option value="1980s" name="1980s">1980-1990</option>
     <option value="1990s" name="1990s">1990-2000</option>
@@ -33,11 +39,11 @@ echo <<<_END
 </form>
 </div>
 
-<div class= "sort">
+<div class= "Budget">
 <form action="index.php"  method="post">
-  <label for="choice">Choose a Movie Budget: </label> <br>
-  <select id="choice" name="choice" >
-    <option> Select your option</option>
+  <label for="budget">Choose a Movie Budget: </label> <br>
+  <select id="budget" name="budget" >
+    <option> Select a budget</option>
     <option value="very_cheap" name="very_cheap">$0-$100,000</option>
     <option value="cheap" name="cheap">$100,000-$500,000</option>
     <option value="median" name="median">$500,000-$1,000,000</option>
@@ -47,11 +53,11 @@ echo <<<_END
 </form>
 </div>
 
-<div class= "sort">
+<div class= "Profit">
 <form action="index.php"  method="post">
-  <label for="choice">Choose a Profit Margin: </label> <br>
-  <select id="choice" name="choice" >
-    <option> Select your option</option>
+  <label for="profit">Choose a Profit Margin: </label> <br>
+  <select id="profit" name="profit" >
+    <option> Select a profit margin</option>
     <option value="very_poor" name="very_poor">$0-$100,000</option>
     <option value="poor" name="poor">$100,000-$500,000</option>
     <option value="good" name="good">$500,000-$1,000,000</option>
