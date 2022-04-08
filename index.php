@@ -5,6 +5,23 @@ echo '<h1> The A-Team Movie Website </h1>';
 
 echo <<<_END
 <br>
+
+<form action="index.php">
+  <label for="title">Film title</label><br>
+  <input type="text" id="title" name="title" value="the godfather"><br>
+  <input type="submit" value="Search title">
+</form> 
+<form action="index.php">
+  <label for="actor">Film actors</label><br>
+  <input type="text" id="actor" name="actor" value="Al Pacino"><br>
+  <input type="submit" value="Search actors">
+</form> 
+<form action="index.php">
+  <label for="director">Film directors</label><br>
+  <input type="text" id="director" name="director" value="Francis Ford"><br>
+  <input type="submit" value="Search directors">
+</form> 
+
 <div class= "Genre">
 <form action="index.php"  method="post">
   <label for="genre">Choose a Genre: </label> <br>
@@ -197,6 +214,22 @@ elseif($_POST['genre'] =="adventure"){
                   $sql="SELECT * FROM movies WHERE Revenue < '10000000' AND Revenue > '1000000' ORDER BY Revenue DESC;";
                  
                  }
+                }
+
+                if(isset($_POST['title'])){
+                 ///insert sql here, to search titles
+                 
+                }
+                if(isset($_POST['actor'])){
+                  ///insert sql here, to search actors
+                  
+                 }
+
+                 if(isset($_POST['director'])){
+                  ///insert sql here, , to search directors
+                  
+                 }
+ 
 
 
   // this query can return data:
