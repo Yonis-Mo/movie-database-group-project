@@ -78,25 +78,126 @@ $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
         die("Connection failed: " . $mysqli_connect_error);
     }
 
+
+//default sql 
+//SELECT * Films
+
  // Sort results
- if(isset($_POST['choice'])){
- if($_POST['choice'] =="1"){
+ if(isset($_POST['genre'])){
+ if($_POST['genre'] =="action"){
+   $sql = "SELECT * FROM movies 
+   WHERE genres Like '%action%'";
  
  }
-elseif($_POST['choice'] =="2"){
+elseif($_POST['genre'] =="romance"){
+  $sql = "SELECT * FROM movies 
+  WHERE genres Like '%romance%'";
+}
+elseif($_POST['genre'] =="thriller"){
+  $sql = "SELECT * FROM movies 
+  WHERE genres Like '%thriller%'";
 
 }
-elseif($_POST['choice'] =="3"){
-}
-elseif($_POST['choice'] =="4"){
+elseif($_POST['genre'] =="horror"){
+  $sql = "SELECT * FROM movies 
+  WHERE genres Like '%horror%'";
 
 }
-else{
- }
+elseif($_POST['genre'] =="crime"){
+  $sql = "SELECT * FROM movies 
+  WHERE genres Like '%crime%'";
+
 }
-else{
+elseif($_POST['genre'] =="western"){
+  $sql = "SELECT * FROM movies 
+  WHERE genres Like '%western%'";
+
+}
+elseif($_POST['genre'] =="comedy"){
+  $sql = "SELECT * FROM movies 
+  WHERE genres Like '%comedy%'";
+}
+elseif($_POST['genre'] =="drama"){
+  $sql = "SELECT * FROM movies 
+  WHERE genres Like '%drama%'";
+
+}
+elseif($_POST['genre'] =="foreign"){
+  $sql = "SELECT * FROM movies 
+  WHERE genres Like '%foreign%'";
+
+}
+elseif($_POST['genre'] =="adventure"){
+  $sql = "SELECT * FROM movies 
+  WHERE genres Like '%adventure%'";
+
+}
+
    
      }
+
+     //code to format date from database
+    //  $UNIX_DATE =($row['ReleaseDate']-25569)*86400; 
+    //  $readable_date = gmdate("d-m-y", $UNIX_DATE); 
+
+     if(isset($_POST['year'])){
+      if($_POST['year'] =="1970s"){
+        
+        $sql="SELECT * FROM movies WHERE ReleaseDate < '29557' AND ReleaseDate > '25557' ORDER BY Budget DESC;";
+      
+      }
+     elseif($_POST['year'] =="1980s"){
+      $sql="SELECT * FROM movies WHERE ReleaseDate < '32957' AND ReleaseDate > '29557' ORDER BY Budget DESC;";
+     
+     }
+     elseif($_POST['year'] =="1990s"){
+      $sql="SELECT * FROM movies WHERE ReleaseDate < '36457' AND ReleaseDate > '32957' ORDER BY Budget DESC;";
+     }
+     elseif($_POST['year'] =="2000s"){
+      $sql="SELECT * FROM movies WHERE ReleaseDate < '40297' AND ReleaseDate > '36457' ORDER BY Budget DESC;";
+     
+     }
+
+        
+          }
+
+          if(isset($_POST['budget'])){
+            if($_POST['budget'] =="very_cheap"){
+              $sql="SELECT * FROM movies WHERE Budget < '100000' AND Budget > '0' ORDER BY Budget DESC;";
+            
+            }
+           elseif($_POST['budget'] =="cheap"){
+            $sql="SELECT * FROM movies WHERE Budget < '500000' AND Budget > '100000' ORDER BY Budget DESC;";
+           
+           }
+           elseif($_POST['budget'] =="median"){
+            $sql="SELECT * FROM movies WHERE Budget < '1000000' AND Budget > '500000' ORDER BY Budget DESC;";
+           }
+           elseif($_POST['budget'] =="expensive"){
+            $sql="SELECT * FROM movies WHERE Budget < '1000000' AND Budget > '1000000' ORDER BY Budget DESC;";
+           
+           }
+
+              
+                }
+
+                if(isset($_POST['profit'])){
+                  if($_POST['profit'] =="very_poor"){
+                    $sql="SELECT * FROM movies WHERE Revenue < '100000' AND Revenue > '0' ORDER BY Revenue DESC;";
+                  
+                  }
+                 elseif($_POST['profit'] =="poor"){
+                  $sql="SELECT * FROM movies WHERE Revenue < '500000' AND Revenue > '100000' ORDER BY Revenue DESC;";
+                 
+                 }
+                 elseif($_POST['profit'] =="good"){
+                  $sql="SELECT * FROM movies WHERE Revenue < '1000000' AND Revenue > '500000' ORDER BY Revenue DESC;";
+                 }
+                 elseif($_POST['profit'] =="great"){
+                  $sql="SELECT * FROM movies WHERE Revenue < '10000000' AND Revenue > '1000000' ORDER BY Revenue DESC;";
+                 
+                 }
+
 
   // this query can return data:
   $result = mysqli_query($connection, $query);
