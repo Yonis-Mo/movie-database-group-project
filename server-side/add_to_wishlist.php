@@ -2,12 +2,13 @@
 
 require_once('credentials.php');
 
-$new_film_to_wishlist = 3;
+
 
 $sql = "SELECT * FROM users WHERE ID = ?;";
 $stmt = $conn->prepare($sql);
 
-$id = 1;
+$id = $_GET['uid'];  //UserID
+$new_film_to_wishlist = $_GET['movieid'];  //Movie_ID
 $stmt->bind_param("i", $id);
 
 $stmt->execute();
@@ -51,11 +52,6 @@ if($stmt->execute()){
 }else{
     echo "Error Adding Wishlist";
 }
-
-
-
-
-
 
 
 ?>
