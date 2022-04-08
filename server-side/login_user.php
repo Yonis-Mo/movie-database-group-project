@@ -39,7 +39,7 @@ while ($row = $result->fetch_assoc()) {
 
 }
 }else{
-  echo "Sorry! We couldn't find any films of that genre";
+  echo "Sorry! We couldn't find your details";
 }
 
 echo "</table>";
