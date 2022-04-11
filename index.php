@@ -218,15 +218,17 @@ elseif($_POST['genre'] =="adventure"){
 
                 if(isset($_POST['title'])){
                  ///insert sql here, to search titles
-                 
+                                    $sql ="SELECT * FROM movies WHERE title Like '.$_POST['id'].'"
                 }
                 if(isset($_POST['actor'])){
                   ///insert sql here, to search actors
-                  
+                                     $sql ="SELECT * FROM movies JOIN credits ON movies.TMDB_ID = credits.ID WHERE Cast1 LIKE '.$_POST['id'].';"
                  }
 
                  if(isset($_POST['director'])){
                   ///insert sql here, , to search directors
+                   
+                   $sql ="SELECT * FROM movies JOIN credits ON movies.TMDB_ID = credits.IDWHERE CREW LIKE '.$_POST['id'].';"
                   
                  }
  
