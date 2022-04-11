@@ -14,6 +14,8 @@ $result = $stmt->get_result();
 
 $table = <<<TABLE
 <table>
+<th>ID</th>
+
   <th>Title</th>
   <th>Overview</th>
   <th>Budget</th>
@@ -31,6 +33,7 @@ if($result->num_rows > 0){
 while ($row = $result->fetch_assoc()) {
   
     echo "<tr>";
+    echo "<td>".$row['id']."</td>";
     echo "<td>".$row['Title']."</td>";
     echo "<td>".$row['Overview']."</td>";
     echo "<td>".$row['Budget']."</td>";
