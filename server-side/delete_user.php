@@ -2,7 +2,7 @@
 
 require_once('credentials.php');
 
-$sql = "DELETE users WHERE id = ?;";
+$sql = "DELETE FROM users WHERE id = ?;";
 $stmt = $conn->prepare($sql);
 
 $uid = $_GET['user_id'];
