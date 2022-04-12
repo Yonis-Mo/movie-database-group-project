@@ -100,6 +100,7 @@ $sql = "";
 
 //default sql 
 //SELECT * Films
+//Amin's notes: where is the defualt sql? 
 
  // Sort results
  if(isset($_POST['genre'])){
@@ -277,4 +278,3 @@ elseif($_POST['genre'] =="adventure"){
 
 include 'footer.php';
 ?>
-
