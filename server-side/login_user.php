@@ -5,8 +5,8 @@ require_once('credentials.php');
 $sql = "SELECT * FROM users WHERE Username = ? AND Password = ?;";
 $stmt = $conn->prepare($sql);
 
-$uname = "admin";
-$pword = "admin";
+$uname = $_GET['uname'];
+$pword = $_GET['pword'];
 
 $stmt->bind_param("ss", $uname, $pword);
 
