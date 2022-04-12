@@ -1,22 +1,23 @@
 <?php
 include 'header.php';
+require_once "credentials.php";
 
 echo '<h1> The A-Team Movie Website </h1>';
 
 echo <<<_END
 <br>
 
-<form action="index.php">
+<form action="index.php" method="post">
   <label for="title">Film title</label><br>
   <input type="text" id="title" name="title" value="the godfather"><br>
   <input type="submit" value="Search title">
 </form> 
-<form action="index.php">
+<form action="index.php" method="post">
   <label for="actor">Film actors</label><br>
   <input type="text" id="actor" name="actor" value="Al Pacino"><br>
   <input type="submit" value="Search actors">
 </form> 
-<form action="index.php">
+<form action="index.php" method="post">
   <label for="director">Film directors</label><br>
   <input type="text" id="director" name="director" value="Francis Ford"><br>
   <input type="submit" value="Search directors">
@@ -35,10 +36,10 @@ echo <<<_END
     <option value="western" name="western">Western</option>
     <option value="comedy" name="comedy">Comedy</option>
     <option value="drama" name="drama">Drama</option>
-    <option value="foreign" name="foerign">Foreign</option>
+    <option value="foreign" name="foreign">Foreign</option>
     <option value="adventure" name="adventure">Adventure</option>
   </select>
-  <button type="submit" value="Submit"> Sort</buttn>
+  <button type="submit" value="Submit"> Sort</button>
 </form>
 </div>
 
@@ -52,7 +53,7 @@ echo <<<_END
     <option value="1990s" name="1990s">1990-2000</option>
     <option value="2000s" name="2000s">2000-2010</option>
   </select>
-  <button type="submit" value="Submit"> Sort</buttn>
+  <button type="submit" value="Submit"> Sort</button>
 </form>
 </div>
 
@@ -66,7 +67,7 @@ echo <<<_END
     <option value="median" name="median">$500,000-$1,000,000</option>
     <option value="expensive" name="expensive">$1,000,000-$10,000,000</option>
   </select>
-  <button type="submit" value="Submit"> Sort</buttn>
+  <button type="submit" value="Submit"> Sort</button>
 </form>
 </div>
 
@@ -80,7 +81,7 @@ echo <<<_END
     <option value="good" name="good">$500,000-$1,000,000</option>
     <option value="great" name="great">$1,000,000-$10,000,000</option>
   </select>
-  <button type="submit" value="Submit"> Sort</buttn>
+  <button type="submit" value="Submit"> Sort</button>
 </form>
 </div>
 
@@ -88,6 +89,7 @@ echo <<<_END
 _END;
 // connect directly to the database:
 $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+$sql = "";
 
 // if the connection fails, allow this exit:
     if (!$connection)
@@ -218,24 +220,26 @@ elseif($_POST['genre'] =="adventure"){
 
                 if(isset($_POST['title'])){
                  ///insert sql here, to search titles
-                                    $sql ="SELECT * FROM movies WHERE title Like '.$_POST['id'].'"
+                                    $sql ="SELECT * FROM movies WHERE Title Like \"%".$_POST['title']."%\"";
+                                    echo "bruv";
                 }
                 if(isset($_POST['actor'])){
                   ///insert sql here, to search actors
-                                     $sql ="SELECT * FROM movies JOIN credits ON movies.TMDB_ID = credits.ID WHERE Cast1 LIKE '.$_POST['id'].';"
+                                     $sql ="SELECT * FROM movies JOIN credits ON movies.TMDB_ID = credits.ID WHERE Cast1 LIKE \"%".$_POST['actor']."%\"";
                  }
 
                  if(isset($_POST['director'])){
                   ///insert sql here, , to search directors
                    
-                   $sql ="SELECT * FROM movies JOIN credits ON movies.TMDB_ID = credits.IDWHERE CREW LIKE '.$_POST['id'].';"
+                   $sql ="SELECT * FROM movies JOIN credits ON movies.TMDB_ID = credits.ID WHERE CREW LIKE \"%".$_POST['director']."%\"";
                   
                  }
  
 
 
   // this query can return data:
-  $result = mysqli_query($connection, $query);
+  echo "sup".$sql."sup";
+  $result = mysqli_query($connection, $sql);
 
     // number of rows that came back:
     $n = mysqli_num_rows($result);
@@ -251,8 +255,10 @@ elseif($_POST['genre'] =="adventure"){
                 $row = mysqli_fetch_assoc($result);
                
                 
-               if($row["?"]){
+               if($row["Title"]){
                 
+                echo "<h1>".$row['Title']."</h1>";
+                echo $n;
                 
                 }
             }
@@ -271,3 +277,4 @@ elseif($_POST['genre'] =="adventure"){
 
 include 'footer.php';
 ?>
+
