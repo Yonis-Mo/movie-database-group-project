@@ -24,6 +24,8 @@ $vote_count = $_GET['vote_count'];
 
 $date = 25569 + ($date / 86400);
 
+//http://localhost:82/Movie-Database/server-side/add_movie.php?tmdb_id=666&imdb_id=666&title=YEET&overview=gvhj&rev=9876543&adult=0&budget=1234567&genres=[{}]&pop=89&date=04-11-2020&runtime=120&tag=%20&vote_avg=20&vote_count=200
+
 $stmt->bind_param("iissiiisdiisdi", 
 $tmdb_id, $imdb_id, $title, $overview, $rev, $adult, $bud, $gens, $pop, $date, $runtime, $tag, $vote_avg, $vote_count);
 if($stmt->execute()){
