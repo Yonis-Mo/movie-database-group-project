@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "moviedatabase";
+$dbname = "moviesdatabase";
 //set data to access database 
 $dbhost  = 'localhost';
 $dbuser  = 'root';
