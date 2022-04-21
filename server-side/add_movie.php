@@ -29,7 +29,7 @@ $year = substr($date, strrpos($date, "-")+1, strlen($date));//last - to end
 $mk = mktime(0,0,0, $month, $day, $year);
 $db_releasedate = intval(($mk/86400) + 25569);
 
-
+//debug stmt
 //http://localhost:82/Movie-Database/server-side/add_movie.php?tmdb_id=666&imdb_id=666&title=YEET&overview=gvhj&rev=9876543&adult=0&budget=1234567&genres=[{}]&pop=89&date=04-11-2020&runtime=120&tag=%20&vote_avg=20&vote_count=200
 
 $stmt->bind_param("iissiiisdiisdi", 
@@ -38,7 +38,7 @@ $tmdb_id, $imdb_id, $title, $overview, $rev, $adult, $bud, $gens, $pop, $db_rele
 if($stmt->execute()){
     echo "Movie Added";
 }else{
-    echo "Error Adding Movie";
+    echo "TMDB_ID and IMDB_ID both need to be unique";
 }
 
 
